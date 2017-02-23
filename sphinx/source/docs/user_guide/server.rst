@@ -982,11 +982,12 @@ you must also add the ``--use-xheaders`` flag:
 
 .. code-block:: sh
 
-    bokeh serve myapp.py --port 5100 --host foo.com:443 --use-xheaders
+    bokeh serve myapp.py --port 5100 --host foo.com:443 --use-xheaders --allow-websocket-origin=foo.com
 
 The ``--use-xheaders`` option causes Bokeh to override the remote IP and
 URI scheme/protocol for all requests with ``X-Real-Ip``, ``X-Forwarded-For``,
-``X-Scheme``, ``X-Forwarded-Proto`` headers when they are available.
+``X-Scheme``, ``X-Forwarded-Proto`` headers when they are available. 
+``--allow-websocket-origin`` option allows the use of websockets through the proxy.
 
 You must also customize Nginx. In particular, you must configure Nginx to
 send the ``X-Forwarded-Proto`` header, as well as configure Nginx for SSL
